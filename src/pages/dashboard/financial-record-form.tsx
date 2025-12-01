@@ -1,16 +1,17 @@
 import { useUser } from "@clerk/clerk-react";
 import { useState } from "react";
 import { useFinancialRecord } from "../../contexts/financial-record-context";
+import "./financial-record.css";
+
 
 const FinancialRecordForm = () => {
   const [description, setDescription] = useState<string>("");
   const [amount, setAmount] = useState<string>("");
   const [category, setCategory] = useState<string>("");
   const [paymentMethod, setPaymentMethod] = useState<string>("");
+  const {addRecord} = useFinancialRecord();
 
   const { user } = useUser();
-
-  const {addRecord} = useFinancialRecord();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

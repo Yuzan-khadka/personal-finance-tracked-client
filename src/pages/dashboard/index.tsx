@@ -22,7 +22,7 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="dashbaord-container">
+    <div className="dashboard-container">
       <h1>Welcome {user?.firstName}! Here are your Finances:</h1>
       <FinancialRecordForm />
       <FinancialRecordList />

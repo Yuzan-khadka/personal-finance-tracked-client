@@ -10,6 +10,7 @@ function App() {
   return (
     <>
     <BrowserRouter>
+    <div className='app-container'>
       <Routes>
         <Route path="/" element={
           <FinancialRecordProvider>
@@ -18,6 +19,8 @@ function App() {
           } />
         <Route path="/auth" element={<Auth/>} />
       </Routes>
+
+      </div>
     </BrowserRouter>
        
     </>
