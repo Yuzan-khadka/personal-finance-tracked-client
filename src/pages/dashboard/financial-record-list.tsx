@@ -14,7 +14,7 @@ import "./financial-record.css";
 
 
 const FinancialRecordList = () => {
-  const { records, updateRecord } = useFinancialRecord();
+  const { records, updateRecord, deleteRecord } = useFinancialRecord();
 
   const updateCellRecord = (rowIndex: number, columnId: string, value: any) => {
     const id = records[rowIndex]._id;
@@ -81,7 +81,7 @@ const columns = useMemo(
       header: "Delete",
       cell: ({ row }) => (
         <button
-        onClick={() => null}
+        onClick={() => deleteRecord(row.original._id ?? " ")}
           className="button"
         >
           Delete

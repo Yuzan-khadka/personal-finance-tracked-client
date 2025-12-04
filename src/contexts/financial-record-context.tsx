@@ -123,7 +123,33 @@ export const FinancialRecordProvider = ({
     }
   };
 
-  const deleteRecord = () => {};
+  const deleteRecord = async(id: String,) => {
+    try {
+      const response = await fetch(
+        `http://localhost:3000/financial-records/deleteRecord/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const deletedRecord: FinancialRecord = await response.json();
+
+      await fetchRecords();
+      console.log(deletedRecord);
+
+      setRecords((prev) => prev.filter((record) => record._id !== id ));
+      
+    } catch (err) {
+      console.error("Error: Unable to add new record!!", err);
+    }
+  };
 
  
 

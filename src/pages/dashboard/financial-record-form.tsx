@@ -53,7 +53,6 @@ const FinancialRecordForm = () => {
           <label>Amount:</label>
           <input
             type="number"
-            min="0"
             required
             className="input"
             value={amount}
@@ -79,6 +78,7 @@ const FinancialRecordForm = () => {
             <option value="Salary">Salary</option>
             <option value="Utilities">Utilities</option>
             <option value="Entertainment">Entertainment</option>
+            <option value="Transportation">Transportation</option>
             <option value="Other">Other</option>
           </select>
         </div>
